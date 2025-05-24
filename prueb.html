@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal del Estudiante</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header con botones -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-700">Hola Estudiante</h1>
+    <div class="space-x-2">
+      <button onclick="mostrarSeccion('empresas')" class="bg-blue-200 px-4 py-1 rounded hover:bg-blue-300">Lista de Empresas</button>
+      <button onclick="mostrarSeccion('cv')" class="bg-blue-200 px-4 py-1 rounded hover:bg-blue-300">Currículum</button>
+    </div>
+  </header>
+
+  <main class="p-6 max-w-4xl mx-auto space-y-8">
+
+    <!-- Sección: Lista de empresas -->
+    <section id="empresas" class="space-y-4">
+      <h2 class="text-xl font-semibold">Lista de Empresas</h2>
+
+      <!-- Empresa A -->
+      <div class="bg-yellow-100 p-4 rounded-xl shadow-md">
+        <div class="flex justify-between items-center">
+          <p class="font-semibold">Empresa A</p>
+          <button onclick="mostrarSeccion('vacantesEmpresaA')" class="bg-yellow-300 px-4 py-1 rounded hover:bg-yellow-400">Revisar Vacantes</button>
+        </div>
+      </div>
+
+      <!-- Empresa B -->
+      <div class="bg-yellow-100 p-4 rounded-xl shadow-md">
+        <div class="flex justify-between items-center">
+          <p class="font-semibold">Empresa B</p>
+          <button onclick="mostrarSeccion('vacantesEmpresaB')" class="bg-yellow-300 px-4 py-1 rounded hover:bg-yellow-400">Revisar Vacantes</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Vacantes Empresa A -->
+    <section id="vacantesEmpresaA" class="hidden bg-blue-100 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Vacantes - Empresa A</h2>
+      <table class="w-full table-auto text-left">
+        <thead>
+          <tr class="text-blue-700">
+            <th>ID Vacante</th>
+            <th>Puesto</th>
+            <th>Fecha fin postulación</th>
+            <th>Enviar CV</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          <tr>
+            <td>#101</td>
+            <td>Desarrollador</td>
+            <td>30/06/2025</td>
+            <td><button class="text-red-500 hover:underline">Enviar CV</button></td>
+          </tr>
+          <!-- Más filas aquí -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Sección: Vacantes Empresa B -->
+    <section id="vacantesEmpresaB" class="hidden bg-blue-100 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Vacantes - Empresa B</h2>
+      <table class="w-full table-auto text-left">
+        <thead>
+          <tr class="text-blue-700">
+            <th>ID Vacante</th>
+            <th>Puesto</th>
+            <th>Fecha fin postulación</th>
+            <th>Enviar CV</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          <tr>
+            <td>#201</td>
+            <td>Diseñador UX</td>
+            <td>15/07/2025</td>
+            <td><button class="text-red-500 hover:underline">Enviar CV</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Sección: Currículum -->
+    <section id="cv" class="hidden bg-blue-100 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4">CV</h2>
+      <div class="flex flex-col gap-4 items-start">
+        <div>
+          <p class="font-medium">CV actual:</p>
+          <button class="bg-white border px-4 py-1 rounded shadow-sm hover:bg-gray-100">Descargar</button>
+        </div>
+        <div>
+          <label class="font-medium">Subir nuevo CV:</label>
+          <input type="file" class="mt-1" />
+          <button class="ml-2 bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Subir</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function mostrarSeccion(id) {
+      // Oculta todas las secciones
+      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+      // Muestra la que corresponde
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
