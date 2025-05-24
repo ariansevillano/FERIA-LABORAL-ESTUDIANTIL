@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Administrador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-700">Hola Administrador</h1>
+    <div class="flex gap-4">
+      <button onclick="mostrarSeccionEstudiantes()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Estudiantes</button>
+      <button onclick="toggleEmpresaOptions()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Empresas</button>
+      <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</button>
+    </div>
+  </header>
+
+  <main class="p-6 max-w-6xl mx-auto space-y-12">
+  
+    <!-- REPORTE DE ESTUDIANTES -->
+    <section id="reporteEstudiantes" class="hidden">
+        <h2 class="text-2xl font-semibold mb-4">Reporte de Estudiantes</h2>
+        <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded shadow">
+            <thead>
+            <tr class="bg-gray-200 text-left">
+                <th class="px-4 py-2">ID Estudiante</th>
+                <th class="px-4 py-2">Código</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Carrera</th>
+                <th class="px-4 py-2">Detalle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-t">
+                <td class="px-4 py-2">E001</td>
+                <td class="px-4 py-2">20201001</td>
+                <td class="px-4 py-2">Carlos Perez</td>
+                <td class="px-4 py-2">Ingeniería de Sistemas</td>
+                <td class="px-4 py-2">
+                <button onclick="verCV('cv_carlos.pdf')" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Ver CV</button>
+                </td>
+            </tr>
+            <tr class="border-t">
+                <td class="px-4 py-2">E002</td>
+                <td class="px-4 py-2">20201002</td>
+                <td class="px-4 py-2">Maria Lopez</td>
+                <td class="px-4 py-2">Diseño Gráfico</td>
+                <td class="px-4 py-2">
+                <button onclick="verCV('cv_maria.pdf')" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Ver CV</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+  
+  <!-- MODAL PARA CV -->
+  <div id="modalCV" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg overflow-hidden shadow-xl w-full max-w-3xl relative">
+      <div class="flex justify-between items-center p-4 border-b">
+        <h3 class="text-xl font-semibold">CV del Estudiante</h3>
+        <button onclick="cerrarModal()" class="text-red-500 text-xl font-bold">&times;</button>
+      </div>
+      <div class="p-4">
+        <iframe id="iframeCV" src="" class="w-full h-[500px] border rounded"></iframe>
+      </div>
+    </div>
+  </div>
+  
+
+    <!-- OPCIONES DE EMPRESAS -->
+    <section id="empresaOptions" class="hidden space-x-4 mb-4">
+      <button onclick="mostrarSeccion('gestion')" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">Gestión de Empresas</button>
+      <button onclick="mostrarSeccion('aprobacion')" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Aprobación de Empresas</button>
+    </section>
+
+    <!-- REPORTE DE POSTULACIONES -->
+    <section id="reportePostulaciones">
+      <h2 class="text-2xl font-semibold mb-4">Reporte de Postulaciones</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded shadow">
+          <thead>
+            <tr class="bg-gray-200 text-left">
+              <th class="px-4 py-2">ID Postulación</th>
+              <th class="px-4 py-2">Código Alumno</th>
+              <th class="px-4 py-2">Nombre Alumno</th>
+              <th class="px-4 py-2">Código Empresa</th>
+              <th class="px-4 py-2">Puesto</th>
+              <th class="px-4 py-2">Fecha</th>
+              <th class="px-4 py-2">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="px-4 py-2">001</td>
+              <td class="px-4 py-2">20201001</td>
+              <td class="px-4 py-2">Carlos Perez</td>
+              <td class="px-4 py-2">EMP001</td>
+              <td class="px-4 py-2">Analista</td>
+              <td class="px-4 py-2">2025-05-24</td>
+              <td class="px-4 py-2 text-green-600 font-medium">Contratado</td>
+            </tr>
+            <tr class="border-t">
+              <td class="px-4 py-2">002</td>
+              <td class="px-4 py-2">20201002</td>
+              <td class="px-4 py-2">Maria Lopez</td>
+              <td class="px-4 py-2">EMP002</td>
+              <td class="px-4 py-2">Diseñador UX</td>
+              <td class="px-4 py-2">2025-05-24</td>
+              <td class="px-4 py-2 text-yellow-600 font-medium">En Proceso</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GESTIÓN DE EMPRESAS -->
+    <section id="gestionEmpresas" class="hidden">
+      <h2 class="text-2xl font-semibold mb-4">Gestión de Empresas</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded shadow">
+          <thead>
+            <tr class="bg-gray-200 text-left">
+              <th class="px-4 py-2">ID Empresa</th>
+              <th class="px-4 py-2">Código</th>
+              <th class="px-4 py-2">Nombre de Contacto</th>
+              <th class="px-4 py-2">Rubro</th>
+              <th class="px-4 py-2">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">EMP001</td>
+              <td class="px-4 py-2">Juan Torres</td>
+              <td class="px-4 py-2">Tecnología</td>
+              <td class="px-4 py-2 space-x-2">
+                <button class="bg-blue-500 text-white px-2 py-1 rounded">Ver</button>
+                <button class="bg-yellow-500 text-white px-2 py-1 rounded">Editar</button>
+                <button class="bg-red-500 text-white px-2 py-1 rounded">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- APROBACIÓN DE EMPRESAS -->
+    <section id="aprobacionEmpresas" class="hidden">
+      <h2 class="text-2xl font-semibold mb-4">Empresas Pendientes de Validación</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded shadow">
+          <thead>
+            <tr class="bg-gray-200 text-left">
+              <th class="px-4 py-2">Código</th>
+              <th class="px-4 py-2">Nombre</th>
+              <th class="px-4 py-2">Estado</th>
+              <th class="px-4 py-2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="px-4 py-2">EMP003</td>
+              <td class="px-4 py-2">TechSoft SAC</td>
+              <td class="px-4 py-2 text-yellow-500">Pendiente</td>
+              <td class="px-4 py-2 space-x-2">
+                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Aprobar</button>
+                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Rechazar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function logout() {
+      window.location.href = 'admin-login.html';
+    }
+  
+    function ocultarTodasLasSecciones() {
+      const secciones = [
+        'reporteEstudiantes',
+        'empresaOptions',
+        'gestionEmpresas',
+        'aprobacionEmpresas',
+        'reportePostulaciones'
+      ];
+      secciones.forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+    }
+  
+    function mostrarSeccionEstudiantes() {
+      ocultarTodasLasSecciones();
+      document.getElementById('reporteEstudiantes').classList.remove('hidden');
+    }
+  
+    function toggleEmpresaOptions() {
+      const empresaOptions = document.getElementById('empresaOptions');
+      const isHidden = empresaOptions.classList.contains('hidden');
+  
+      ocultarTodasLasSecciones(); // Oculta todo primero
+  
+      if (isHidden) {
+        empresaOptions.classList.remove('hidden');
+      } else {
+        empresaOptions.classList.add('hidden');
+      }
+    }
+  
+    function mostrarSeccion(seccion) {
+      // Primero ocultamos todas las secciones
+      ocultarTodasLasSecciones();
+      // Luego mostramos la que se quiere
+      if (seccion === 'gestion') {
+        document.getElementById('gestionEmpresas').classList.remove('hidden');
+      } else if (seccion === 'aprobacion') {
+        document.getElementById('aprobacionEmpresas').classList.remove('hidden');
+      } else if (seccion === 'reporteEstudiantes') {
+        document.getElementById('reporteEstudiantes').classList.remove('hidden');
+      } else if (seccion === 'reportePostulaciones') {
+        document.getElementById('reportePostulaciones').classList.remove('hidden');
+      }
+    }
+  
+    function verCV(cvFile) {
+      document.getElementById('iframeCV').src = `./cvs/${cvFile}`;
+      document.getElementById('modalCV').classList.remove('hidden');
+    }
+  
+    function cerrarModal() {
+      document.getElementById('modalCV').classList.add('hidden');
+      document.getElementById('iframeCV').src = '';
+    }
+  </script>
+  
+</body>
+</html>
