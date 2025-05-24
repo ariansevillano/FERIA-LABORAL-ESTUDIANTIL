@@ -8,112 +8,123 @@
 </head>
 <body class="bg-gray-100">
 
-  <!-- Header con botones -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex flex-wrap justify-between items-center gap-2">
     <h1 class="text-xl font-bold text-blue-700">Hola Estudiante</h1>
-    <div class="space-x-2">
-      <button onclick="mostrarSeccion('empresas')" class="bg-blue-200 px-4 py-1 rounded hover:bg-blue-300">Lista de Empresas</button>
-      <button onclick="mostrarSeccion('cv')" class="bg-blue-200 px-4 py-1 rounded hover:bg-blue-300">Currículum</button>
+    <div class="flex flex-wrap gap-2">
+      <button onclick="mostrarSeccion('empresas')" class="bg-blue-200 text-sm px-4 py-1 rounded hover:bg-blue-300">Lista de Empresas</button>
+      <button onclick="mostrarSeccion('cv')" class="bg-blue-200 text-sm px-4 py-1 rounded hover:bg-blue-300">Currículum</button>
+      <button onclick="logout()" class="bg-red-200 text-sm px-4 py-1 rounded hover:bg-red-300">Cerrar sesión</button>
     </div>
   </header>
 
-  <main class="p-6 max-w-4xl mx-auto space-y-8">
+  <main class="p-4 sm:p-6 max-w-5xl mx-auto space-y-8">
 
-    <!-- Sección: Lista de empresas -->
+    <!-- Lista de Empresas -->
     <section id="empresas" class="space-y-4">
       <h2 class="text-xl font-semibold">Lista de Empresas</h2>
 
       <!-- Empresa A -->
       <div class="bg-yellow-100 p-4 rounded-xl shadow-md">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <p class="font-semibold">Empresa A</p>
-          <button onclick="mostrarSeccion('vacantesEmpresaA')" class="bg-yellow-300 px-4 py-1 rounded hover:bg-yellow-400">Revisar Vacantes</button>
+          <button onclick="mostrarSeccion('vacantesEmpresaA')" class="bg-yellow-300 text-sm px-4 py-1 rounded hover:bg-yellow-400">Revisar Vacantes</button>
         </div>
       </div>
 
       <!-- Empresa B -->
       <div class="bg-yellow-100 p-4 rounded-xl shadow-md">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <p class="font-semibold">Empresa B</p>
-          <button onclick="mostrarSeccion('vacantesEmpresaB')" class="bg-yellow-300 px-4 py-1 rounded hover:bg-yellow-400">Revisar Vacantes</button>
+          <button onclick="mostrarSeccion('vacantesEmpresaB')" class="bg-yellow-300 text-sm px-4 py-1 rounded hover:bg-yellow-400">Revisar Vacantes</button>
         </div>
       </div>
     </section>
 
-    <!-- Sección: Vacantes Empresa A -->
-<section id="vacantesEmpresaA" class="hidden bg-blue-100 p-6 rounded-xl shadow-md space-y-4">
-    <h2 class="text-xl font-semibold">Vacantes - Empresa A</h2>
-    <table class="w-full table-auto text-left">
-      <thead>
-        <tr class="text-blue-700">
-          <th>ID Vacante</th>
-          <th>Puesto</th>
-          <th>Fecha fin postulación</th>
-          <th>Enviar CV</th>
-        </tr>
-      </thead>
-      <tbody class="text-sm">
-        <tr>
-          <td>#101</td>
-          <td>Desarrollador</td>
-          <td>30/06/2025</td>
-          <td><button class="text-red-500 hover:underline">Enviar CV</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button onclick="mostrarSeccion('empresas')" class="mt-4 bg-gray-300 px-4 py-1 rounded hover:bg-gray-400">← Volver a Empresas</button>
-  </section>
-  
-  <!-- Sección: Vacantes Empresa B -->
-  <section id="vacantesEmpresaB" class="hidden bg-blue-100 p-6 rounded-xl shadow-md space-y-4">
-    <h2 class="text-xl font-semibold">Vacantes - Empresa B</h2>
-    <table class="w-full table-auto text-left">
-      <thead>
-        <tr class="text-blue-700">
-          <th>ID Vacante</th>
-          <th>Puesto</th>
-          <th>Fecha fin postulación</th>
-          <th>Enviar CV</th>
-        </tr>
-      </thead>
-      <tbody class="text-sm">
-        <tr>
-          <td>#201</td>
-          <td>Diseñador UX</td>
-          <td>15/07/2025</td>
-          <td><button class="text-red-500 hover:underline">Enviar CV</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button onclick="mostrarSeccion('empresas')" class="mt-4 bg-gray-300 px-4 py-1 rounded hover:bg-gray-400">← Volver a Empresas</button>
-  </section>
-  
-  <!-- Sección: Currículum -->
-  <section id="cv" class="hidden bg-blue-100 p-6 rounded-xl shadow-md space-y-4">
-    <h2 class="text-xl font-semibold">CV</h2>
-    <div class="flex flex-col gap-4 items-start">
-      <div>
-        <p class="font-medium">CV actual:</p>
-        <button class="bg-white border px-4 py-1 rounded shadow-sm hover:bg-gray-100">Descargar</button>
+    <!-- Vacantes Empresa A -->
+    <section id="vacantesEmpresaA" class="hidden bg-blue-100 p-6 rounded-xl shadow-md space-y-4">
+      <h2 class="text-xl font-semibold">Vacantes - Empresa A</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto text-left">
+          <thead>
+            <tr class="text-blue-700 text-sm">
+              <th class="px-2 py-1">ID Vacante</th>
+              <th class="px-2 py-1">Puesto</th>
+              <th class="px-2 py-1">Fecha fin postulación</th>
+              <th class="px-2 py-1">Enviar CV</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr>
+              <td class="px-2 py-1">#101</td>
+              <td class="px-2 py-1">Desarrollador</td>
+              <td class="px-2 py-1">30/06/2025</td>
+              <td class="px-2 py-1"><button class="text-red-500 hover:underline">Enviar CV</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div>
-        <label class="font-medium">Subir nuevo CV:</label>
-        <input type="file" class="mt-1" />
-        <button class="ml-2 bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Subir</button>
+      <button onclick="mostrarSeccion('empresas')" class="mt-4 bg-gray-300 text-sm px-4 py-1 rounded hover:bg-gray-400">← Volver a Empresas</button>
+    </section>
+
+    <!-- Vacantes Empresa B -->
+    <section id="vacantesEmpresaB" class="hidden bg-blue-100 p-6 rounded-xl shadow-md space-y-4">
+      <h2 class="text-xl font-semibold">Vacantes - Empresa B</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto text-left">
+          <thead>
+            <tr class="text-blue-700 text-sm">
+              <th class="px-2 py-1">ID Vacante</th>
+              <th class="px-2 py-1">Puesto</th>
+              <th class="px-2 py-1">Fecha fin postulación</th>
+              <th class="px-2 py-1">Enviar CV</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr>
+              <td class="px-2 py-1">#201</td>
+              <td class="px-2 py-1">Diseñador UX</td>
+              <td class="px-2 py-1">15/07/2025</td>
+              <td class="px-2 py-1"><button class="text-red-500 hover:underline">Enviar CV</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-    <button onclick="mostrarSeccion('empresas')" class="mt-4 bg-gray-300 px-4 py-1 rounded hover:bg-gray-400">← Volver a Empresas</button>
-  </section>
-  
+      <button onclick="mostrarSeccion('empresas')" class="mt-4 bg-gray-300 text-sm px-4 py-1 rounded hover:bg-gray-400">← Volver a Empresas</button>
+    </section>
+
+    <!-- Currículum -->
+    <section id="cv" class="hidden bg-blue-100 p-6 rounded-xl shadow-md space-y-4">
+      <h2 class="text-xl font-semibold">CV</h2>
+      <div class="flex flex-col gap-4">
+        <div>
+          <p class="font-medium">CV actual:</p>
+          <button class="bg-white border px-4 py-1 rounded shadow-sm hover:bg-gray-100 text-sm">Descargar</button>
+        </div>
+        <div>
+          <label class="font-medium">Subir nuevo CV:</label>
+          <div class="flex flex-col sm:flex-row gap-2 mt-1">
+            <input type="file" class="text-sm" />
+            <button class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 text-sm">Subir</button>
+          </div>
+        </div>
+      </div>
+      <button onclick="mostrarSeccion('empresas')" class="mt-4 bg-gray-300 text-sm px-4 py-1 rounded hover:bg-gray-400">← Volver a Empresas</button>
+    </section>
+
   </main>
 
   <script>
     function mostrarSeccion(id) {
-      // Oculta todas las secciones
       document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
-      // Muestra la que corresponde
       document.getElementById(id).classList.remove('hidden');
     }
+    function logout() {
+    // Aquí puedes reemplazar con redirección o limpieza de sesión
+    alert("Sesión cerrada");
+    window.location.href = "/index.html"; // Cambia a la ruta de tu login real
+  }
   </script>
+
 </body>
 </html>

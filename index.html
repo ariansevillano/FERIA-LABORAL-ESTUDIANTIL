@@ -8,40 +8,40 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
   <header class="bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">Feria de Empleabilidad</h1>
-      <nav class="space-x-4">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-wrap justify-between items-center gap-y-4">
+      <h1 class="text-2xl font-bold text-blue-600 w-full sm:w-auto text-center sm:text-left">Feria de Empleabilidad</h1>
+      <nav class="flex flex-wrap justify-center sm:justify-end gap-2 w-full sm:w-auto">
         <a href="login-estudiante.html" class="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600 transition">Estudiantes</a>
         <a href="login-empresa.html" class="bg-gray-200 text-blue-600 px-4 py-2 rounded-xl hover:bg-gray-300 transition">Empresas</a>
         <a href="admin-login.html" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800">
-          Ingresar como Administrador
+          Administrador
         </a>
       </nav>
     </div>
   </header>
 
-  <main class="px-4 py-20 bg-gradient-to-b from-blue-50 to-white">
-    <div class="flex flex-col items-center text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6">Conectando Talento con Oportunidades</h2>
-      <p class="max-w-2xl text-lg md:text-xl text-gray-600 mb-10">
+  <main class="px-4 py-16 md:py-20 bg-gradient-to-b from-blue-50 to-white">
+    <div class="flex flex-col items-center text-center mb-16 px-2">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-700 mb-6">Conectando Talento con Oportunidades</h2>
+      <p class="max-w-2xl text-base sm:text-lg md:text-xl text-gray-600 mb-10">
         La Feria de Empleabilidad Virtual se realiza dos veces al año para facilitar el encuentro entre estudiantes, recién egresados y empresas en busca de talento.
       </p>
-      <div class="flex flex-col md:flex-row gap-6">
-        <a href="login-estudiante.html" class="bg-blue-500 text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-blue-600 transition shadow-md">
+      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
+        <a href="login-estudiante.html" class="bg-blue-500 text-white px-6 py-3 rounded-xl text-base sm:text-lg font-medium hover:bg-blue-600 transition shadow-md">
           Iniciar sesión como Estudiante
         </a>
-        <a href="login-empresa.html" class="bg-gray-200 text-blue-600 px-6 py-3 rounded-xl text-lg font-medium hover:bg-gray-300 transition shadow-md">
+        <a href="login-empresa.html" class="bg-gray-200 text-blue-600 px-6 py-3 rounded-xl text-base sm:text-lg font-medium hover:bg-gray-300 transition shadow-md">
           Iniciar sesión como Empresa
         </a>
-        <a href="admin-login.html" class="bg-gray-700 text-white px-6 py-3 rounded-xl text-lg font-medium hover:bg-gray-800 transition shadow-md">
+        <a href="admin-login.html" class="bg-gray-700 text-white px-6 py-3 rounded-xl text-base sm:text-lg font-medium hover:bg-gray-800 transition shadow-md">
           Administrador
         </a>
       </div>
     </div>
 
-    <section class="max-w-4xl mx-auto text-center mb-24">
-      <h3 class="text-3xl font-bold text-blue-600 mb-4">¿Por qué participar?</h3>
-      <p class="text-gray-700 text-lg mb-6">
+    <section class="max-w-4xl mx-auto text-center mb-24 px-4">
+      <h3 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">¿Por qué participar?</h3>
+      <p class="text-gray-700 text-base sm:text-lg mb-6">
         La feria ofrece una plataforma única para que empresas descubran talento joven calificado y que estudiantes encuentren prácticas o primeros empleos alineados con su carrera.
       </p>
       <ul class="text-left text-gray-600 list-disc list-inside">
@@ -52,44 +52,43 @@
       </ul>
     </section>
 
-    <section id="registro-empresas" class="bg-white shadow-md rounded-xl max-w-3xl mx-auto p-8">
-        <h3 class="text-2xl font-bold text-blue-700 mb-4 text-center">Registro de Empresas</h3>
-        <form action="#" method="POST" class="space-y-4">
-          <div>
-            <label class="block text-left font-medium text-gray-700">Nombre de la empresa</label>
-            <input type="text" name="empresa" required class="w-full border border-gray-300 rounded px-4 py-2" />
-          </div>
-          <div>
-            <label class="block text-left font-medium text-gray-700">Correo de contacto</label>
-            <input type="email" name="correo" required class="w-full border border-gray-300 rounded px-4 py-2" />
-          </div>
-          <div>
-            <label class="block text-left font-medium text-gray-700">Rubro</label>
-            <input type="text" name="rubro" class="w-full border border-gray-300 rounded px-4 py-2" />
-          </div>
-          <div>
-            <label class="block text-left font-medium text-gray-700">Descripción de la empresa</label>
-            <textarea name="descripcion" rows="3" class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
-          </div>
-          <div>
-            <label class="block text-left font-medium text-gray-700">Nombre de contacto</label>
-            <input type="text" name="nombre_contacto" required class="w-full border border-gray-300 rounded px-4 py-2" />
-          </div>
-          <div>
-            <label class="block text-left font-medium text-gray-700">Número de contacto</label>
-            <input type="tel" name="numero_contacto" required class="w-full border border-gray-300 rounded px-4 py-2" />
-          </div>
-          <div class="text-center">
-            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition">
-              Registrarse
-            </button>
-          </div>
-        </form>
-      </section>
-      
+    <section id="registro-empresas" class="bg-white shadow-md rounded-xl max-w-3xl mx-auto p-6 sm:p-8">
+      <h3 class="text-xl sm:text-2xl font-bold text-blue-700 mb-4 text-center">Registro de Empresas</h3>
+      <form action="#" method="POST" class="space-y-4">
+        <div>
+          <label class="block text-left font-medium text-gray-700">Nombre de la empresa</label>
+          <input type="text" name="empresa" required class="w-full border border-gray-300 rounded px-4 py-2" />
+        </div>
+        <div>
+          <label class="block text-left font-medium text-gray-700">Correo de contacto</label>
+          <input type="email" name="correo" required class="w-full border border-gray-300 rounded px-4 py-2" />
+        </div>
+        <div>
+          <label class="block text-left font-medium text-gray-700">Rubro</label>
+          <input type="text" name="rubro" class="w-full border border-gray-300 rounded px-4 py-2" />
+        </div>
+        <div>
+          <label class="block text-left font-medium text-gray-700">Descripción de la empresa</label>
+          <textarea name="descripcion" rows="3" class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
+        </div>
+        <div>
+          <label class="block text-left font-medium text-gray-700">Nombre de contacto</label>
+          <input type="text" name="nombre_contacto" required class="w-full border border-gray-300 rounded px-4 py-2" />
+        </div>
+        <div>
+          <label class="block text-left font-medium text-gray-700">Número de contacto</label>
+          <input type="tel" name="numero_contacto" required class="w-full border border-gray-300 rounded px-4 py-2" />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition">
+            Registrarse
+          </button>
+        </div>
+      </form>
+    </section>
   </main>
 
-  <footer class="text-center py-6 text-sm text-gray-500 mt-12">
+  <footer class="text-center py-6 text-sm text-gray-500 mt-12 px-4">
     © 2025 Universidad - Oficina de Empleabilidad
   </footer>
 </body>
